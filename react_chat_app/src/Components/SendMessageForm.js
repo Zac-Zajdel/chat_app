@@ -15,7 +15,7 @@ class SendMessageForm extends Component {
   // Calls method inside of App.js to send Message to API
   handleSubmit = e => {
     e.preventDefault();
-    this.props.sendMessage(this.state.message);
+    this.props.sendMessage(this.state.message, this.props.roomId);
     this.setState({
       message: ''
     });
