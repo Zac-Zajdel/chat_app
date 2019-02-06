@@ -28,6 +28,7 @@ class SendMessageForm extends Component {
         onSubmit={this.handleSubmit}
       >
         <input
+          disabled={this.props.disabled}
           onChange={this.handleChange}
           value={this.state.message}
           type='text'

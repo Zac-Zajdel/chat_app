@@ -24,6 +24,16 @@ class MessageList extends Component {
   }
 
   render() {
+    // If the user hasn't yet entered a room.
+    if (!this.props.roomId) {
+      return (
+        <div className='message-list'>
+          <div className='join-room'>
+            &larr; Join a room!
+          </div>
+        </div>
+      );
+    }
     return (
       <div className='message-list'>
         {this.props.messages.map((message, i) => {
