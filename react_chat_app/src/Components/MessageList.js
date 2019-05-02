@@ -34,6 +34,7 @@ class MessageList extends Component {
         </div>
       );
     }
+
     return (
       <div className='message-list'>
         {this.props.messages.map((message, i) => {

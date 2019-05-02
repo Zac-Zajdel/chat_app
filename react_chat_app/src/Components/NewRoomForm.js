@@ -6,13 +6,10 @@ class NewRoomForm extends Component {
     roomName: ''
   }
 
-  handleChange = (e) => {
-    this.setState({
-      roomName: e.target.value
-    })
-  }
+  handleChange = e => this.setState({ roomName: e.target.value });
 
-  handleSubmit = (e) => {
+
+  handleSubmit = e => {
     e.preventDefault();
     this.props.createRoom(this.state.roomName);
     this.setState({ roomName: '' });

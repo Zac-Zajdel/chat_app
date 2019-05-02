@@ -52,22 +52,20 @@ class App extends Component {
   // Called inside of RoomList and subscribes user to the room they click.
   // Resetting the state allows you to move between the different rooms.
   // Adds the previous messages with the new messages.
-  subscribeToRoom = (roomId) => {
-    this.setState({ messages: [] })
+  subscribeToRoom = roomId => {
+    this.setState({ messages: [] });
     this.currentUser.subscribeToRoom({
       roomId: roomId,
       hooks: {
         onMessage: message => {
           console.log(`Recieved new Message: ${message.text}`);
-          this.setState({
-            messages: [...this.state.messages, message]
-          })
+          this.setState({ messages: [...this.state.messages, message] })
         }
       }
     })
       .then(room => {
         this.setState({ roomId: room.id });
-        this.getRooms()
+        this.getRooms();
       })
       .catch(error => console.log('Error subscribing to the room: ', error));
   }
@@ -93,10 +91,8 @@ class App extends Component {
     });
   }
 
-  createRoom = (name) => {
-    this.currentUser.createRoom({
-      name
-    })
+  createRoom = name => {
+    this.currentUser.createRoom({ name })
       .then(room => this.subscribeToRoom(room.id))
       .catch(err => console.log('error with room', err));
   }

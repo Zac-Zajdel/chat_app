@@ -6,11 +6,8 @@ class SendMessageForm extends Component {
     message: ''
   }
 
-  handleChange = e => {
-    this.setState({
-      message: e.target.value
-    })
-  }
+  handleChange = e => this.setState({ message: e.target.value });
+
 
   // Calls method inside of App.js to send Message to API
   handleSubmit = e => {
